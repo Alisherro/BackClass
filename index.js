@@ -17,7 +17,6 @@ app.get('/',(req,res)=>{
     res.render('index',{title:'Main page ', active:'main'})
 })
 
-
 app.get('/features',(req,res)=>{2
     res.render('features',{title:'Features page', active:'features'})
 })
