@@ -28,9 +28,8 @@ function getClassByRate(vote) {
 }
 
 function showMovies(data) {
+    let counter=0;
     const moviesEl = document.querySelector(".movies");
-
-    // Очищаем предыдущие фильмы
     document.querySelector(".movies").innerHTML = "";
 
     data.films.forEach((movie) => {
@@ -50,19 +49,38 @@ function showMovies(data) {
         <div class="movie__category">${movie.genres.map(
             (genre) => ` ${genre.genre}`
         )}</div>
-        ${
-            movie.rating &&
-            `
-        <div class="movie__average movie__average--${getClassByRate(
-                movie.rating
-            )}">${movie.rating}</div>
-        `
-        }
-      </div>
         `;
+
         moviesEl.appendChild(movieEl);
+        let a=movie;
+        document.getElementsByClassName("movie")[counter].addEventListener("click",function(){film_pager(a)});
+        counter++;
     });
 }
+
+function film_pager(data){
+    const moviesEl = document.querySelector(".mainSection");
+    document.querySelector(".movies").innerHTML = "";
+    document.querySelector(".mainSection").innerHTML = "";
+    const movieEl = document.createElement("div");
+    movieEl.innerHTML =`<img class="mainFilmImg" src="${data.posterUrlPreview}" alt="">
+
+        <p><strong>Ratings: </strong>Imdb: <strong>${data.ratingImdb}</strong></p>
+        <p><strong>Slogan: </strong>${data.slogan} </p>
+        <p><strong>Release date:</strong>${data.year}</p>
+        <p><strong>Country: </strong>${data.countries.map(
+        (country) => ` ${country.country}`)} </p>
+        <p><strong>Genre: </strong>${data.genres.map(
+        (genre) => ` ${genre.genre}`)} </p>
+        <h1>Description: </h1>
+        <p>${data.description}</p>`;
+    moviesEl.appendChild(movieEl);
+
+
+}
+
+
+
 
 const form = document.querySelector("form");
 const search = document.querySelector(".form-control");
