@@ -29,6 +29,11 @@ app.get('/anime',(req,res)=>{
     res.render('anime',{title:'Chinese cartoons', active:'features'})
 })
 
+app.get('/serials',(req,res)=>{
+    res.render('anime',{title:'Serials', active:'features'})
+})
+
+
 
 
 app.listen(PORT,()=>{
