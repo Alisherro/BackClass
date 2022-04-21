@@ -18,20 +18,17 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/features',(req,res)=>{2
-    res.render('features',{title:'Movies', active:'features'})
+    res.render('features',{title:'Catalog', active:'features'})
 })
 
 app.get('/log',(req,res)=>{
     res.render('log',{title:'Logging', active:'log'})
 })
 
-app.get('/anime',(req,res)=>{2
-    res.render('anime',{title:'Anime', active:'anime'})
+app.get('/anime',(req,res)=>{
+    res.render('anime',{title:'Chinese cartoons', active:'features'})
 })
 
-app.get('/serials',(req,res)=>{2
-    res.render('serials',{title:'Serials', active:'serial'})
-})
 
 
 app.listen(PORT,()=>{
