@@ -1,18 +1,18 @@
 const express = require('express')
 const path=require('path')
 const mongoose = require('mongoose')
-// const __dirname=path.resolve()
-const PORT=8000
 const app=express()
+const authRouter = require('./authRouter')
+
+const PORT=8000
 const db='mongodb+srv://Alisher:kihfa7689@cluster0.hvz0m.mongodb.net/auth_roles?retryWrites=true&w=majority'
 
-mongoose
-    .connect(db)
-    .then(res=>console.log('DB Connected'))
-    .catch(err=>err)
 
 app.set('view engine','ejs')
 app.set('views',path.resolve(__dirname,'ejs'))
+app.use(express.json())
+app.use("/auth", authRouter)
+
 
 app.use(express.static(path.resolve(__dirname,'static')))
 
@@ -40,8 +40,14 @@ app.get('/sign',(req,res)=>{
     res.render('sign',{title:'sign'})
 })
 
-app.listen(PORT,()=>{
-    console.log("Сервер запущен на порте",PORT)
-    console.log("http://localhost:"+PORT)
-})
+
+const start =async () => {
+    try{
+        await mongoose.connect(db);
+        app.listen(PORT, ()=>console.log(`listening on port ${PORT}...`))
+    }catch (e){
+        console.log(e)
+    }
+}
+start()
 
