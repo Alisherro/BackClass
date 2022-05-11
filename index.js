@@ -30,6 +30,10 @@ app.get('/login',(req,res)=>{
     res.render('log',{title:'Logging', active:'log'})
 })
 
+app.get('/delete',(req,res)=>{
+    res.render('delete',{title:'delete', active:'delete'})
+})
+
 app.get('/anime',(req,res)=>{
     res.render('anime',{title:'Chinese cartoons', active:'features'})
 })
@@ -41,7 +45,7 @@ app.get('/serials',(req,res)=>{
 app.get('/registration',(req,res)=>{
     res.render('sign',{title:'sign'})
 })
-
+app.post('/delete',controller.delete)
 app.post('/registration', urlencodedParser,controller.registration)
 app.post('/login', controller.login)
 app.get('/users', roleMiddleware(['admin']),controller.getUsers)

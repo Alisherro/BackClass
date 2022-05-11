@@ -69,6 +69,23 @@ class authController {
             console.log(e)
         }
     }
+
+    async delete(req,res){
+        try{
+            const erase= req.body.username
+            await User.deleteOne({username: req.body.username}).then(data => {
+                if (data.deletedCount===0) {
+                    res.render("User not found")
+                } else {
+                    res.render("user "+erase+" deleted succesfully!")
+                }
+            }).catch(err => {
+                res.render(err.message)
+            });
+        }catch (e){
+            console.log(e)
+        }
+    }
 }
 
 module.exports = new authController()
