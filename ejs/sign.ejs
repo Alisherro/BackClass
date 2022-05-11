@@ -12,32 +12,26 @@
     <div class="login-block">
         <img class="fav" src="https://cdn-icons-png.flaticon.com/512/483/483361.png" alt="Ava">
         <h2>Введите свои данные</h2>
-        <form action="#">
+        <form method="POST" action="/registration">
+
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user ti-user"></i></span>
-                    <input type="text" class="form-control" placeholder="E-mail">
-                </div>
-            </div>
-            <hr class="hr-xs">
-            <div class="form-group">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user ti-user"></i></span>
-                    <input type="text" class="form-control" placeholder="Логин">
+                    <input type="text" name="signName" class="form-control" placeholder="Логин">
                 </div>
             </div>
             <hr class="hr-xs">
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock ti-unlock"></i></span>
-                    <input type="password" class="form-control" placeholder="Пароль">
+                    <input type="password" name="signPassword" class="form-control" placeholder="Пароль">
                 </div>
             </div>
             <hr class="hr-xs">
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock ti-unlock"></i></span>
-                    <input type="password" class="form-control" placeholder="Подтвердите пароль">
+                    <input type="password" name="signPassword2" class="form-control" placeholder="Подтвердите пароль">
                 </div>
             </div>
             <button class="btn btn-primary btn-block" type="submit">Зарегистрироваться</button>
@@ -46,7 +40,7 @@
     </div>
 
     <div class="login-links">
-        <p class="text-center">Есть аккаунт? <a class="txt-brand" href="log"><font color=#29aafe>Авторизуйся</font></a></p>
+        <p class="text-center">Есть аккаунт? <a class="txt-brand" href="login"><font color=#29aafe>Авторизуйся</font></a></p>
     </div>
 
 </main>
