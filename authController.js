@@ -75,9 +75,9 @@ class authController {
             const erase= req.body.username
             await User.deleteOne({username: req.body.username}).then(data => {
                 if (data.deletedCount===0) {
-                    res.render("User not found")
+                    res.json("User not found")
                 } else {
-                    res.render("user "+erase+" deleted succesfully!")
+                    res.json("user "+erase+" deleted succesffuly!")
                 }
             }).catch(err => {
                 res.render(err.message)
