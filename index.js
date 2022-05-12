@@ -30,16 +30,16 @@ app.get('/login',(req,res)=>{
     res.render('log',{title:'Logging', active:'log'})
 })
 
-app.get('/delete',(req,res)=>{
-    res.render('delete',{title:'delete', active:'delete'})
-})
-
 app.get('/anime',(req,res)=>{
     res.render('anime',{title:'Chinese cartoons', active:'features'})
 })
 
 app.get('/serials',(req,res)=>{
     res.render('anime',{title:'Serials', active:'features'})
+})
+
+app.get('/admin',(req,res)=>{
+    res.render('adminpage',{title:'Admin Page', active:'admin'})
 })
 
 app.get('/registration',(req,res)=>{
