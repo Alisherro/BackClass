@@ -54,7 +54,7 @@ app.get('/users', roleMiddleware(['admin']),controller.getUsers)
 const start =async () => {
     try{
         await mongoose.connect(db);
-        app.listen(PORT, ()=>console.log(`listening on port ${PORT}...`))
+        app.listen(PORT, ()=>console.log("http://localhost:8000"))
     }catch (e){
         console.log(e)
     }
