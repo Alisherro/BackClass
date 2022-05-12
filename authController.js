@@ -77,10 +77,10 @@ class authController {
                 if (data.deletedCount===0) {
                     res.json("User not found")
                 } else {
-                    res.json("user "+erase+" deleted succesffuly!")
+                    res.json("User "+erase+" deleted successfully!")
                 }
             }).catch(err => {
-                res.render(err.message)
+                res.json(err.message)
             });
         }catch (e){
             console.log(e)
