@@ -1,8 +1,8 @@
 const express = require('express')
 const path=require('path')
 const mongoose = require('mongoose')
-const controller = require("./authController");
-const roleMiddleware = require("./middlewaree/roleMiddlaware");
+const controller = require("./authController")
+const roleMiddleware = require("./middlewaree/roleMiddlaware")
 const app=express()
 const authMiddleware= require('./middlewaree/authMiddleware')
 const bodyParser = require('body-parser')
@@ -22,7 +22,7 @@ app.get('/',(req,res)=>{
     res.render('index',{title:'Main page ', active:'main'})
 })
 
-app.get('/features',(req,res)=>{2
+app.get('/features',(req,res)=>{
     res.render('features',{title:'Catalog', active:'features'})
 })
 
@@ -39,17 +39,27 @@ app.get('/serials',(req,res)=>{
 })
 
 app.get('/admin',(req,res)=>{
-    res.render('adminpage',{title:'Admin Page', active:'admin'})
+    res.render('adminpage',{title:'Admin Page', active:'adminpage'})
 })
 
 app.get('/registration',(req,res)=>{
     res.render('sign',{title:'sign'})
 })
-app.post('/delete',controller.delete)
+
+
 app.post('/registration', urlencodedParser,controller.registration)
 app.post('/login', controller.login)
-app.get('/users', roleMiddleware(['admin']),controller.getUsers)
+app.post('/delete', controller.delete)
+app.post('/update', controller.update)
+app.post('/create', controller.create)
+app.post('/find', controller.find)
 
+
+
+
+
+
+app.get('/users', roleMiddleware(['admin']),controller.getUsers)
 
 const start =async () => {
     try{

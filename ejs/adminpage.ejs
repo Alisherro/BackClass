@@ -8,40 +8,56 @@
 <body>
 <%- include('./partials/navbar'); %>
 
-<div class="card">
-    <div class="card-header">
-        Delete user
-    </div>
-    <div class="card-body">
-        <input placeholder="username" name="deluser">
-        <a href="#" class="btn btn-primary">Delete</a>
-    </div>
-</div>
 
-
-<div class="card">
-    <div class="card-header">
-        Update user
+<form method="POST" action="/delete">
+    <div class="card">
+        <div class="card-header">
+            Delete user
+        </div>
+        <div class="card-body">
+            <input type="text" placeholder="username" name="deluser">
+            <button class="btn btn-primary btn-block" type="submit">Delete</button>
+        </div>
     </div>
-    <div class="card-body">
-        <input placeholder="username" name="upusername">
+</form>
+<form method="POST" action="/update">
+    <div class="card">
+        <div class="card-header">
+            Update user
+        </div>
+        <div class="card-body">
+            <input placeholder="username" name="upusername">
+            <input placeholder="new password" name="upnewpassword">
 
-        <input placeholder="password" name="uppassword">
-        <input placeholder="new password" name="upnewpassword">
+            <button class="btn btn-primary btn-block" type="submit">Update</button>
+        </div>
+    </div>
+</form>
 
-        <a href="#" class="btn btn-primary">Delete</a>
+<form method="POST" action="/create">
+    <div class="card">
+        <div class="card-header">
+            Create user
+        </div>
+        <div class="card-body">
+            <input placeholder="username" name="crusername">
+            <input placeholder="password" name="crpassword">
+            <button class="btn btn-primary btn-block" type="submit">Create</button>
+        </div>
     </div>
-</div>
+</form>
 
-<div class="card">
-    <div class="card-header">
-        Create user
+<form method="POST" action="/find">
+    <div class="card">
+        <div class="card-header">
+            Find user
+        </div>
+        <div class="card-body">
+            <input placeholder="username" name="username">
+            <button class="btn btn-primary btn-block" type="submit">Find</button>
+        </div>
     </div>
-    <div class="card-body">
-        <input placeholder="username" name="crusername">
-        <input placeholder="password" name="crpassword">
-        <a href="#" class="btn btn-primary">Create</a>
-    </div>
-</div>
+</form>
+
 </body>
 </html>
