@@ -7,7 +7,7 @@ const app=express()
 const authMiddleware= require('./middlewaree/authMiddleware')
 const bodyParser = require('body-parser')
 
-const PORT=8000
+const PORT=process.env.PORT||config.get('server port')
 const db='mongodb+srv://Alisher:kihfa7689@cluster0.hvz0m.mongodb.net/auth_roles?retryWrites=true&w=majority'
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
