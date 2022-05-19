@@ -3,6 +3,7 @@ const path=require('path')
 const mongoose = require('mongoose')
 const controller = require("./authController")
 const roleMiddleware = require("./middlewaree/roleMiddlaware")
+const methodOverride = require('method-override')
 const app=express()
 const authMiddleware= require('./middlewaree/authMiddleware')
 const bodyParser = require('body-parser')
@@ -16,6 +17,7 @@ app.set('views',path.resolve(__dirname,'ejs'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.resolve(__dirname,'static')))
+app.use(methodOverride('_method'))
 
 
 app.get('/',(req,res)=>{
@@ -49,10 +51,12 @@ app.get('/registration',(req,res)=>{
 
 app.post('/registration', urlencodedParser,controller.registration)
 app.post('/login', controller.login)
-app.post('/delete', controller.delete)
-app.post('/update', controller.update)
-app.post('/create', controller.create)
-app.post('/find', controller.find)
+
+
+app.delete('/admin/user', controller.delete)
+app.patch('/admin/user', controller.update)
+app.post('/admin/user', controller.create)
+app.get('/admin/user', controller.find)
 
 let port =process.env.PORT
 if (port==null||port==""){

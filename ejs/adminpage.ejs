@@ -9,7 +9,7 @@
 <%- include('./partials/navbar'); %>
 
 
-<form method="POST" action="/delete">
+<form method="POST" action="/admin/user?_method=DELETE">
     <div class="card">
         <div class="card-header">
             Delete user
@@ -20,7 +20,7 @@
         </div>
     </div>
 </form>
-<form method="POST" action="/update">
+<form method="POST" action="/admin/user?_method=PATCH">
     <div class="card">
         <div class="card-header">
             Update user
@@ -34,7 +34,7 @@
     </div>
 </form>
 
-<form method="POST" action="/create">
+<form method="POST" action="/admin/user">
     <div class="card">
         <div class="card-header">
             Create user
@@ -47,7 +47,7 @@
     </div>
 </form>
 
-<form method="POST" action="/find">
+<form method="get" action="/admin/user">
     <div class="card">
         <div class="card-header">
             Find user

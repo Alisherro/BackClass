@@ -77,6 +77,7 @@ function film_pager(data){
     moviesEl.appendChild(movieEl);
 
 
+
 }
 
 
