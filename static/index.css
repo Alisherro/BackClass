@@ -1,6 +1,7 @@
 
 *{
     max-width: 1920px;
+
 }
 .image{
     width: 90%;
@@ -127,3 +128,23 @@
     border: solid 1px black;
     width:100%;
 }
+
+.imag{
+    object-fit:cover;
+    overflow:hidden;
+    display: block;
+    width:80%;
+    height: 470px;
+    border-radius: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hov{
+    transition: 1s;
+    filter: grayscale(0.5);
+}
+.hov:hover {
+    filter: grayscale(0);
+    transform: scale(1.07)
+}
+

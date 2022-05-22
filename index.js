@@ -24,8 +24,8 @@ app.get('/',(req,res)=>{
     res.render('index',{title:'Main page ', active:'main'})
 })
 
-app.get('/features',(req,res)=>{
-    res.render('features',{title:'Catalog', active:'features'})
+app.get('/catalog',(req,res)=>{
+    res.render('catalog',{title:'Catalog', active:'catalog'})
 })
 
 app.get('/login',(req,res)=>{
@@ -37,7 +37,7 @@ app.get('/anime',(req,res)=>{
 })
 
 app.get('/serials',(req,res)=>{
-    res.render('anime',{title:'Serials', active:'features'})
+    res.render('serials',{title:'Serials', active:'features'})
 })
 
 app.get('/admin',(req,res)=>{
@@ -56,22 +56,19 @@ app.post('/login', controller.login)
 app.delete('/admin/user', controller.delete)
 app.patch('/admin/user', controller.update)
 app.post('/admin/user', controller.create)
-app.get('/admin/user', controller.find)
+app.post('/admin/find', controller.find)
 
 let port =process.env.PORT
 if (port==null||port==""){
     port =8000
 }
 
-
-
-
 app.get('/users', roleMiddleware(['admin']),controller.getUsers)
 
 const start =async () => {
     try{
         await mongoose.connect(db);
-        app.listen(port)
+        app.listen(port, ()=>console.log("http://localhost:"+port))
     }catch (e){
         console.log(e)
     }
