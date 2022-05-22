@@ -128,11 +128,12 @@ class authController {
             res.status(400).json({message: 'Creating error'})
         }
     }
+
     async find(req,res){
         try{
             const username=req.body.username
             const result = await User.find({username: username})
-            if(!User){
+            if(!result[0]){
                 return res.status(400).json({message:"Пользователь "+username+" не найден"})
             }
             res.render('temp',{name:username,password:result[0].password,id:result[0]._id,role:result[0].roles[0],title:'Finder', active:'adminpage'})
