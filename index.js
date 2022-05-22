@@ -8,7 +8,7 @@ const app=express()
 const authMiddleware= require('./middlewaree/authMiddleware')
 const bodyParser = require('body-parser')
 
-
+const PORT=8000
 const db='mongodb+srv://Alisher:kihfa7689@cluster0.hvz0m.mongodb.net/auth_roles?retryWrites=true&w=majority'
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -56,12 +56,7 @@ app.post('/login', controller.login)
 app.delete('/admin/user', controller.delete)
 app.patch('/admin/user', controller.update)
 app.post('/admin/user', controller.create)
-app.get('/admin/user', controller.find)
-
-let port =process.env.PORT
-if (port==null||port==""){
-    port =8000
-}
+app.post('/admin/find', controller.find)
 
 
 
@@ -71,7 +66,7 @@ app.get('/users', roleMiddleware(['admin']),controller.getUsers)
 const start =async () => {
     try{
         await mongoose.connect(db);
-        app.listen(port)
+        app.listen(PORT, ()=>console.log("http://localhost:8000"))
     }catch (e){
         console.log(e)
     }

@@ -97,15 +97,10 @@ class authController {
                 return res.status(400).json({message:"Пользователь "+username+" не найден"})
             }
             const hashPassword = bcrypt.hashSync(newPassword, 7);
-            const result= await User.findOneAndUpdate(
-                {username: username},
-                {password: hashPassword},
-                function(err, result){
-
-                    console.log(result);
-                }
-            );
-
+            const filter = { username: username};
+            const update = { password:hashPassword };
+            await User.findOneAndUpdate(filter, update);
+            return res.json({message: 'The user '+username+' has been successfully updated !'})
         }catch (e){
             console.log(e)
         }
@@ -137,6 +132,9 @@ class authController {
         try{
             const username=req.body.username
             const result = await User.find({username: username})
+            if(!User){
+                return res.status(400).json({message:"Пользователь "+username+" не найден"})
+            }
             res.render('temp',{name:username,password:result[0].password,id:result[0]._id,role:result[0].roles[0],title:'Finder', active:'adminpage'})
         } catch (e) {
             console.log(e)
