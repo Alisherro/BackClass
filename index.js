@@ -24,8 +24,8 @@ app.get('/',(req,res)=>{
     res.render('index',{title:'Main page ', active:'main'})
 })
 
-app.get('/features',(req,res)=>{
-    res.render('features',{title:'Catalog', active:'features'})
+app.get('/catalog',(req,res)=>{
+    res.render('catalog',{title:'Catalog', active:'catalog'})
 })
 
 app.get('/login',(req,res)=>{
@@ -37,7 +37,7 @@ app.get('/anime',(req,res)=>{
 })
 
 app.get('/serials',(req,res)=>{
-    res.render('anime',{title:'Serials', active:'features'})
+    res.render('serials',{title:'Serials', active:'features'})
 })
 
 app.get('/admin',(req,res)=>{
