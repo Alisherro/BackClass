@@ -127,3 +127,20 @@
     border: solid 1px black;
     width:100%;
 }
+
+.imag{
+    object-fit:cover;
+    position: relative;
+    overflow:hidden;
+    width:80%;
+    height: 470px;
+    border-radius: 5%;
+    filter: grayscale(0.5);
+    transition: 1s;
+}
+
+.imag:hover {
+    filter: grayscale(0);
+    transform: scale(1.07)
+}
+
