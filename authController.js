@@ -132,12 +132,10 @@ class authController {
         try{
             const username=req.body.username
             const user = await User.find({username: username})
-            if (user){
-                res.render('temp',{name:username,password:user[0].password,id:user[0]._id,role:user[0].roles[0],title:'Finder', active:'adminpage'})
-            }
-            else if(!user){
+            if (!user[0]){
                 return res.status(400).json({message:"Пользователь "+username+" не найден"})
             }
+            res.render('temp',{name:username,password:user[0].password,id:user[0]._id,role:user[0].roles[0],title:'Finder', active:'adminpage'})
         } catch (e) {
             console.log(e)
         }
