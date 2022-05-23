@@ -7,8 +7,8 @@ const methodOverride = require('method-override')
 const app=express()
 const authMiddleware= require('./middlewaree/authMiddleware')
 const bodyParser = require('body-parser')
+//
 
-const PORT=8000
 const db='mongodb+srv://Alisher:kihfa7689@cluster0.hvz0m.mongodb.net/auth_roles?retryWrites=true&w=majority'
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -24,8 +24,8 @@ app.get('/',(req,res)=>{
     res.render('index',{title:'Main page ', active:'main'})
 })
 
-app.get('/catalog',(req,res)=>{
-    res.render('catalog',{title:'Catalog', active:'catalog'})
+app.get('/features',(req,res)=>{
+    res.render('features',{title:'Catalog', active:'features'})
 })
 
 app.get('/login',(req,res)=>{
@@ -37,7 +37,7 @@ app.get('/anime',(req,res)=>{
 })
 
 app.get('/serials',(req,res)=>{
-    res.render('serials',{title:'Serials', active:'features'})
+    res.render('anime',{title:'Serials', active:'features'})
 })
 
 app.get('/admin',(req,res)=>{
@@ -56,9 +56,14 @@ app.post('/login', controller.login)
 app.delete('/admin/user', controller.delete)
 app.patch('/admin/user', controller.update)
 app.post('/admin/user', controller.create)
-app.post('/admin/find', controller.find)
+app.get('/admin/user', controller.find)
 
-
+let port =process.env.PORT
+if (port==null||port==""){
+    port =8000
+}
+//
+//
 
 
 app.get('/users', roleMiddleware(['admin']),controller.getUsers)
@@ -66,7 +71,7 @@ app.get('/users', roleMiddleware(['admin']),controller.getUsers)
 const start =async () => {
     try{
         await mongoose.connect(db);
-        app.listen(PORT, ()=>console.log("http://localhost:8000"))
+        app.listen(port)
     }catch (e){
         console.log(e)
     }
