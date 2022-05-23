@@ -56,22 +56,18 @@ app.post('/login', controller.login)
 app.delete('/admin/user', controller.delete)
 app.patch('/admin/user', controller.update)
 app.post('/admin/user', controller.create)
-app.get('/admin/user', controller.find)
+app.post('/admin/find', controller.find)
 
 let port =process.env.PORT
-if (port==null||port==""){
-    port =8000
+if (port==null||port===""){
+    port=8000
 }
-//
-//
-
-
-app.get('/users', roleMiddleware(['admin']),controller.getUsers)
 
 const start =async () => {
     try{
         await mongoose.connect(db);
         app.listen(port)
+        console.log('http://localhost:'+port)
     }catch (e){
         console.log(e)
     }
