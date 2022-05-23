@@ -24,8 +24,8 @@ app.get('/',(req,res)=>{
     res.render('index',{title:'Main page ', active:'main'})
 })
 
-app.get('/features',(req,res)=>{
-    res.render('features',{title:'Catalog', active:'features'})
+app.get('/catalog',(req,res)=>{
+    res.render('catalog',{title:'Catalog', active:'catalog'})
 })
 
 app.get('/login',(req,res)=>{
@@ -51,8 +51,6 @@ app.get('/registration',(req,res)=>{
 
 app.post('/registration', urlencodedParser,controller.registration)
 app.post('/login', controller.login)
-
-
 app.delete('/admin/user', controller.delete)
 app.patch('/admin/user', controller.update)
 app.post('/admin/user', controller.create)

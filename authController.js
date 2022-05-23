@@ -131,17 +131,17 @@ class authController {
     async find(req,res){
         try{
             const username=req.body.username
-            const result = await User.find({username: username})
-            if(!User){
+            const user = await User.find({username: username})
+            if (user){
+                res.render('temp',{name:username,password:user[0].password,id:user[0]._id,role:user[0].roles[0],title:'Finder', active:'adminpage'})
+            }
+            else if(!user){
                 return res.status(400).json({message:"Пользователь "+username+" не найден"})
             }
-            res.render('temp',{name:username,password:result[0].password,id:result[0]._id,role:result[0].roles[0],title:'Finder', active:'adminpage'})
         } catch (e) {
             console.log(e)
         }
     }
-
-
 }
 
 module.exports = new authController()
