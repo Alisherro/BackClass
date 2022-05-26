@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%-include('./partials/head'); %>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<%-include('./partials/navbar') %>
+
+
+<%if(movie !== '') {%>
+<%movie.forEach(element => {%>
+    <div class="movie__cover-inner">
+        <img
+                src="<%=element.poster%>"
+                class="movie__cover"
+                alt="<%=element.name%>"
+        />
+        <div class="movie__cover--darkened"></div>
+    </div>
+<div class="movie__info">
+    <div class="movie__title"><%=element.name%></div>
+    <div class="movie__category"><%=element.genre%>
+    </div></div>
+<%})%>
+<%}else{%>
+    <h6>List is empty</h6>
+<%}%>
+
+</body>
+</html>
