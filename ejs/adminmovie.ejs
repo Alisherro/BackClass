@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%-include('./partials/head'); %>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <%-include('./partials/navbar') %>
+<form method="" action="">
+    <div class="card">
+        <div class="card-header">
+            Add movie
+        </div>
+        <div class="card-body">
+            <input placeholder="name" name="name">
+            <input placeholder="poster" name="poster">
+            <input placeholder="trailer" name="url">
+            <input placeholder="country" name="country">
+            <input placeholder="year" name="year">
+            <input placeholder="genre" name="genre">
+            <input placeholder="imdb" name="imdb">
+
+
+
+            <button class="btn btn-primary btn-block" type="submit">Add</button>
+        </div>
+    </div>
+</form>
+
+<form method="" action="">
+    <div class="card">
+        <div class="card-header">
+            Find movie
+        </div>
+        <div class="card-body">
+            <input placeholder="name" name="name">
+
+            <button class="btn btn-primary btn-block" type="submit">Find</button>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

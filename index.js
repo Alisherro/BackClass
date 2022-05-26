@@ -44,6 +44,10 @@ app.get('/admin',(req,res)=>{
     res.render('adminpage',{title:'Admin Page', active:'adminpage'})
 })
 
+app.get('/adminmovie',(req,res)=>{
+    res.render('adminmovie',{title:'Movie Page', active:'adminmovie'})
+})
+
 app.get('/registration',(req,res)=>{
     res.render('sign',{title:'sign'})
 })
@@ -55,6 +59,8 @@ app.delete('/admin/user', controller.delete)
 app.patch('/admin/user', controller.update)
 app.post('/admin/user', controller.create)
 app.post('/admin/find', controller.find)
+
+
 
 let port =process.env.PORT
 if (port==null||port===""){
