@@ -11,4 +11,4 @@ const Movie = new Schema({
     imdb:{type:String, required:true}
 })
 
-module.exports = model('Movie', Movie)
+module.exports = model('movie', Movie)

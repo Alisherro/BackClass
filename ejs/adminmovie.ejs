@@ -6,7 +6,7 @@
 </head>
 <body>
     <%-include('./partials/navbar') %>
-<form method="" action="">
+<form method="POST" action="/admin/movie">
     <div class="card">
         <div class="card-header">
             Add movie
@@ -27,7 +27,7 @@
     </div>
 </form>
 
-<form method="" action="">
+<form method="POST" action="/admin/movies">
     <div class="card">
         <div class="card-header">
             Find movie
@@ -39,6 +39,21 @@
         </div>
     </div>
 </form>
+
+
+    <form method="POST" action="/admin/movie?_method=DELETE">
+        <div class="card">
+            <div class="card-header">
+                Delete movie
+            </div>
+            <div class="card-body">
+                <input placeholder="name" name="name">
+                <input placeholder="year" name="year">
+
+                <button class="btn btn-primary btn-block" type="submit">Delete</button>
+            </div>
+        </div>
+    </form>
 
 </body>
 </html>
