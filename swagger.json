@@ -93,8 +93,24 @@
           }
         }
       }
+    },
+    "/admin/delete": {
+      "delete": {
+        "summary": "Delete user with given username",
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "User is deleted",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      }
     }
   }
+
+
 
 
 
